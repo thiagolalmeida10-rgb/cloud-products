@@ -5,6 +5,7 @@ interface __BaseEnv_CloudflareEnv {
 	IMAGES: ImagesBinding;
 	ASSETS: Fetcher;
 	NEXTJS_ENV: string;
+    DB: D1Database;
 	WORKER_SELF_REFERENCE: Fetcher /* cloud-products */;
 }
 declare namespace Cloudflare {

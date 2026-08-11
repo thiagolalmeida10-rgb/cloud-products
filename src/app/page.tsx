@@ -32,7 +32,7 @@ export default function Home() {
 					<div key={produto.id}>
 						<h2>{produto.nome}</h2>
 
-						<p>R$ {produto.preco}</p>
+						<p>R${produto.preco}</p>
 					</div>
 				))}
 			</section>

@@ -25,7 +25,7 @@ const produtos = [
 export default async function Home() {
 
 	const response = await fetch(
-    "https://cloud-products.gustavosoftex.workers.dev/api/produtos",
+    "https://cloud-products.thiago-l-almeida10.workers.dev/api/produtos",
     {
       cache: "no-store",
     }

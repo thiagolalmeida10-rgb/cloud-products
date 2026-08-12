@@ -1,5 +1,3 @@
-"use client"
-
 const produtos = [
 	{
 		id: 1,
@@ -21,7 +19,7 @@ const produtos = [
 export default function Home() {
 	return (
 		<main>
-			<h1>Cloud Products ------------</h1>
+			<h1>Cloud Products - Página Principal</h1>
 
 			<h1>Catalogo de Produtos</h1>
 

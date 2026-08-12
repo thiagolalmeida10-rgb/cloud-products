@@ -1,3 +1,9 @@
+type Produto = {
+  id: number;
+  nome: string;
+  preco: number;
+};
+
 const produtos = [
 	{
 		id: 1,
@@ -16,24 +22,40 @@ const produtos = [
 	}
 ]
 
-export default function Home() {
+export default async function Home() {
+
+	const response = await fetch(
+    "https://cloud-products.gustavosoftex.workers.dev/api/produtos",
+    {
+      cache: "no-store",
+    }
+  );
+
+  const produtos: Produto[] = await response.json();
+
 	return (
-		<main>
-			<h1>Cloud Products - Página Principal</h1>
+		<main style={{ padding: "40px" }}>
+      <h1>Cloud Products</h1>
 
-			<h1>Catalogo de Produtos</h1>
+      <h2>Produtos</h2>
 
-			<button>Novo Produto</button>
-
-			<section>
-				{produtos.map((produto)=>(
-					<div key={produto.id}>
-						<h2>{produto.nome}</h2>
-
-						<p>R${produto.preco}</p>
-					</div>
-				))}
-			</section>
-		</main>
+      {produtos.length === 0 ? (
+        <p>Nenhum produto cadastrado.</p>
+      ) : (
+        <ul>
+          {produtos.map(
+            (produto: {
+              id: number;
+              nome: string;
+              preco: number;
+            }) => (
+              <li key={produto.id}>
+                {produto.nome} - R$ {produto.preco}
+              </li>
+            )
+          )}
+        </ul>
+      )}
+    </main>
 	);
 }
